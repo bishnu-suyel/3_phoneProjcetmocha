@@ -50,5 +50,30 @@ describe("Test getName()", function () {
   
   it('test number "0000"', function(){
     expect(register.getName("0000")).to.be.null;
-  })
+  });
+});
+
+describe('Test with default data', function(){
+    const register = new PhoneRegister(phones);
+    it('Testing type work', function(){
+        const expectedResult = [
+          {
+            firstname: "Leila",
+            lastname: "Hökki",
+            number: { type: "work", tel: "987654321" },
+          },
+          {
+            firstname: "Leila",
+            lastname: "Hökki",
+            number: { type: "work", tel: "05040302" },
+          },
+          {
+            firstname: "Matt",
+            lastname: "River",
+            number: { type: "work", tel: "2468159" },
+          }
+        ];
+        expect(register.getAllNumbersByType('work')).to.deep.equal(expectedResult);
+
+    });
 });
