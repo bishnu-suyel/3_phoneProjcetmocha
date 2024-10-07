@@ -115,4 +115,16 @@ export default class PhoneRegister {
     }
     return null;
   }
+  //addition for mocha testing
+  hasNumber(number){
+    for(const person of this.#register){
+        for(const phone of person.phones){
+            if(phone.number===number){
+                return true;
+            }
+        }
+    }
+    return false;
+  }
+  
 }; //End of the class
